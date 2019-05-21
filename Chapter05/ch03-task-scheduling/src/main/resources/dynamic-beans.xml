@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:lang="http://www.springframework.org/schema/lang"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/lang
+    http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
+    <lang:groovy id="planet" script-source="classpath:script.groovy"/>
+    
+    <lang:groovy id="inlineBean">
+    <lang:inline-script>
+
+	import com.mastering.spring.dynamic.scripting.SecretMessenger
+
+	class DummyMessenger implements SecretMessenger {
+	    String key
+	}
+
+    </lang:inline-script>
+    <lang:property name="key" value="SECRET_KEY" />
+</lang:groovy>
+
+</beans>
